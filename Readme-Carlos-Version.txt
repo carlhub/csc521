@@ -19,3 +19,21 @@ Carlos, I'm checking to see if I can do procedure bymyself.
 February 9 2017
 	JT good job! Lets put our ideas in here and keep working on it.
 	I've heard good things about "Java ANTLR". I'll check it out later.
+	
+2/9/17
+	Themes/Subjects
+	War
+		Dates
+		Title/Names
+		Combatants
+		.
+		.
+		.
+	Computer Evolution
+		Date
+		Title/Names
+		Company
+		.
+		.
+		.
+	Look into "Java ANTLR"
