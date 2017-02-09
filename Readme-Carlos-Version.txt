@@ -12,3 +12,6 @@ git init
 git add .
 git commit -m "new comment added"
 git push -u origin master
+
+
+Carlos, I'm checking to see if I can do procedure bymyself.
