@@ -1,4 +1,4 @@
-CSC521 
+﻿CSC521 
 Homework #1
 
 Create New languages
@@ -277,3 +277,104 @@ void main()
 }
 }
 
+
+===========================================================================================================
+Here are some ideas on the grammer as well as a list and dates since 1980.
+
+Possible Grammar
+=====================
+int_primitive		->	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+int_year			->	1 8 [8-9] int_primitive
+int_year_range		->	1889 | 1890 | 1891 | 1892 | ... | 2015 | 2016
+int_year_range_form	->	int_year - int_year
+
+char				->	char* | [A-Z] | [a-z]
+char_statement		->	" char* | "
+
+
+War Title/Years (From 1890 until present)
+=============================================
+Pine Ridge Campaign 
+(1890–1891)
+Garza Revolution 
+(1891–1893)
+Rio de Janeiro Affair 
+(1894)
+Yaqui Wars 
+(1896-1918)
+Second Samoan Civil War 
+(1898–1899)
+Spanish–American War 
+(1898)
+Philippine–American War 
+(1899–1902)
+Boxer Rebellion 
+(1899–1901)
+Crazy Snake Rebellion 
+(1909)
+Border War 
+(1910–1919)#
+Negro Rebellion 
+(1912)#
+Occupation of Nicaragua. 
+(1912–1933)#
+Bluff War 
+(1914–1915)
+Occupation of Haiti. 
+(1915–1934)#
+Sugar Intervention 
+(1916–1918)#
+Occupation of the Dominican Republic 
+(1916–1924)#
+World War I 
+(1917–1918)
+Russian Civil War 
+(1918–1920)#
+Posey War 
+(1923)
+World War II 
+(1941–1945)
+Korean War 
+(1950–1953)#
+Lebanon Crisis 
+(1958)#
+Bay of Pigs Invasion 
+(1961)#
+Simba Rebellion 
+(1964)#
+Dominican Civil War 
+(1965–1966)#
+Vietnam War 
+(1965–1975)
+Communist insurgency in Thailand 
+(1965–1983)
+Shaba II 
+(1978)
+Multinational Force in Lebanon 
+(1982-1984)#
+Invasion of Grenada 
+(1983)#
+Tanker War 
+(1987–1988)
+Invasion of Panama 
+(1989–1990)
+Gulf War 
+(1990–1991)
+Somali Civil War 
+(1992–1995)#
+Intervention in Haiti 
+(1994–1995)
+Bosnian War 
+(1994–1995)#
+Kosovo War 
+(1998–1999)#
+War in Afghanistan 
+(2001–2014)#
+Iraq War 
+(2003–2011)#
+War in North-West Pakistan 
+(2004–present)#
+2011 military intervention in Libya 
+(2011)#
+War on ISIL: Operation Inherent Resolve
+(2014–present)#
