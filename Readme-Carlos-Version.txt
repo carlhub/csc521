@@ -284,7 +284,7 @@ Here are some ideas on the grammer as well as a list and dates since 1980.
 Possible Grammar
 =====================
 int_primitive		->	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-int_year			->	1 8 [8-9] int_primitive
+int_year			->	[1-2] [8-9] [8-9]  int_primitive
 int_year_range		->	1889 | 1890 | 1891 | 1892 | ... | 2015 | 2016
 int_year_range_form	->	int_year - int_year
 
