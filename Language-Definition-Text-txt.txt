@@ -13,7 +13,7 @@ date	->	year | year mm dd
 
 year	->	1 [8-9] digit digit
 
-mm	->	[0-1] [0-9]
+mm	->	[0-1] [0-2] | 0 [0-9]
 
 dd	->	[0-3] [0-9]
 
