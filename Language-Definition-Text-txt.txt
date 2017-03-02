@@ -24,3 +24,5 @@ actors	->	actor | actor *actor
 actor	->	name
 
 name	->	string
+
+WS		->	[ \t\r\n]+ -> skip; //skip white space
