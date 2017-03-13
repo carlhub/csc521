@@ -1,4 +1,4 @@
-event "birthday1" 1980-09-25 (carlos)(james);
+event "Birthday Event!" 1980-09-25 (carlos Ontiveros)(james Taylor);
 event "Start Computer Science Program" 2013 (carlos)(james);
 event "Start advanced programming" 2017-01- (carlos)(james);
 event "Start advanced programming" 2017-01-11 (carlos)(james);

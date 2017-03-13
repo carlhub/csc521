@@ -62,7 +62,8 @@ actor	:	NAME
 		;
 
 		
-NAME	:	'(' [a-zA-Z_]+ ')'	// NAME is NOT in quotes, it's in Parenthesis
+NAME	:	'(' [a-zA-Z_]+ ([a-zA-Z] | [' '] )* ')'	// NAME is NOT in quotes, it's in Parenthesis
+		
 		;
 		
 WS 		: [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines		
