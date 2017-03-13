@@ -91,16 +91,10 @@ history	:	event+ ;
 event	:	'event'	DESCRIPTION 			date	actors				';'
 		;
 
-DESCRIPTION	: '"' [a-zA-Z_]+ ( [0-9] | [a-zA-Z] | WS)* 			//+ one or more; DESCRIPTION must be in quotes
-			//| (' DESCRIPTION)*
+DESCRIPTION	: '"'  [a-zA-Z_]+ ( [0-9] | [a-zA-Z] | ' ')* 			//+ one or more; DESCRIPTION must be in quotes
 			 '"'
-			//:	'"' '"'
-	//		| 	'"' WS* DESCRIPTION* WS* '"'
-		//	|	'"' WS* [a-zA-Z_]+ [a-zA-Z_]* '"'
-		//	|	'"' WS* [a-zA-Z_]+ WS* [a-zA-Z_]* '"'
 		//	|	'"' WS* [a-zA-Z_]+ WS* [a-zA-Z_]* WS* '"'
-			
-		//	//:	'"' [a-zA-Z_]+ WS [a-zA-Z_]* '"'	//+ one or more
+		//:	'"' [a-zA-Z_]+ WS [a-zA-Z_]* '"'	//+ one or more
 			;
 		
 date	:	YEAR
@@ -138,10 +132,13 @@ actor	:	NAME
 NAME	:	'(' [a-zA-Z_]+ ')'	// NAME is NOT in quotes, it's in Parenthesis
 		;
 		
-//WS 		: [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines		
+WS 		: [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines		
+
+/*
 WS		: ( ' '
 		| '\t'
 		| '\r'
 		| '\n'
 			)
 		;
+*/
