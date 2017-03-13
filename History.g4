@@ -79,7 +79,7 @@ prog : r r*;
 //prog2: DD ';' ;
 r  : 'hello' ID r* ';' ;         // match keyword hello followed by an identifier
 ID : [a-z]+ ;             // match lower-case identifiers
-//WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+
 
 
 			/*	history language	*/
@@ -91,10 +91,11 @@ history	:	event+ ;
 event	:	'event'	DESCRIPTION 			date	actors				';'
 		;
 
-DESCRIPTION	: '"' [a-zA-Z_]+ [0-9]* '"' 			//+ one or more; DESCRIPTION must be in quotes
-			| '"'	[a-z] 
+DESCRIPTION	: '"' [a-zA-Z_]+ ( [0-9] | [a-zA-Z] | WS)* 			//+ one or more; DESCRIPTION must be in quotes
+			//| (' DESCRIPTION)*
+			 '"'
 			//:	'"' '"'
-			| 	'"' WS* DESCRIPTION* WS* '"'
+	//		| 	'"' WS* DESCRIPTION* WS* '"'
 		//	|	'"' WS* [a-zA-Z_]+ [a-zA-Z_]* '"'
 		//	|	'"' WS* [a-zA-Z_]+ WS* [a-zA-Z_]* '"'
 		//	|	'"' WS* [a-zA-Z_]+ WS* [a-zA-Z_]* WS* '"'
@@ -137,4 +138,10 @@ actor	:	NAME
 NAME	:	'(' [a-zA-Z_]+ ')'	// NAME is NOT in quotes, it's in Parenthesis
 		;
 		
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines		
+//WS 		: [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines		
+WS		: ( ' '
+		| '\t'
+		| '\r'
+		| '\n'
+			)
+		;
