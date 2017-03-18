@@ -16,6 +16,13 @@
 		"	event	"	[_]	"	took place on		"	[_]		"	and involved		"	[_] " and "	[_] " and " ...
 		
 		//Event [war] took place on [1994] and it involved [USA and Japan].
+		
+	Must Have:
+		variables
+		input: 
+		output: PRINT
+		id: variables
+		operators: * + / -
 */
 
 
@@ -27,9 +34,24 @@
 grammar History;		
 history	:	event+ ;
 
+
+prog	:	'history' NAME 
+		'{'
+		//ID*
+		id*
+		event+
+		'}'
+		;
+		
+id		: 'new' ('Actor' | 'Date' | 'Event') NAME '=' DESCRIPTION ';'
+		;
+
+
+
 //event	:	'event' "describe the event"	date	(actor1) (actor2) ...
 event	:	'event'	DESCRIPTION 			date 	actors	';'
 		;
+		
 
 DESCRIPTION	: '"'  [a-zA-Z_]+ ( [0-9] | [a-zA-Z] | ' ')* 			//+ one or more; DESCRIPTION must be in quotes
 			 '"'
@@ -62,17 +84,7 @@ actor	:	NAME
 		;
 
 		
-NAME	:	'(' [a-zA-Z_]+ ([a-zA-Z] | [' '] )* ')'	// NAME is NOT in quotes, it's in Parenthesis
-		
+NAME	:	'(' [a-zA-Z_]+ ([a-zA-Z] | [0-9] | ' ' )* ')'	// NAME is NOT in quotes, it's in Parenthesis		
 		;
 		
 WS 		: [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines		
-
-/*
-WS		: ( ' '
-		| '\t'
-		| '\r'
-		| '\n'
-			)
-		;
-*/
