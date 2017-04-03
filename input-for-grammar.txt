@@ -7,4 +7,5 @@ event "birthday 1 2 3" 1965-03-25 (Mom);
 event "World War II" 1944-01-01 (USA)(Russia)(UK)(Germany)(France)(Japan);
 event "World War II" 1944-01-01 (USA)(Russia)(UK)(Germany)(France)(Japan);
 event "World War II" 1944-01-01 (USA)(Russia)(UK)(Germany)(France)(Japan);
+event "worldwar" 1776 (USA);
 ^Z
