@@ -26,8 +26,6 @@
 */
 
 
-
-
 			/*	history language	*/
 			/* Language				*/
 
@@ -35,16 +33,27 @@ grammar History;
 history	:	event+ ;
 
 
+					
 prog	:	'history' NAME 
 		'{'
-		//ID*
-		id*
+		//idb*
+		(id | idArray)*
 		event+
 		'}'
 		;
 		
 id		: 'new' ('Actor' | 'Date' | 'Event') NAME '=' DESCRIPTION ';'
 		;
+//idb 	:  ('Array') ('['  NONZERO DIGIT* ']')* NAME '=' DESCRIPTION ';'
+//		;
+//idArray	:	'new' ('Actor' | 'Date' | 'Event')    (  '['  ('11' | '2' | '9' | '1' | DIGIT?)  ']')?    NAME '=' DESCRIPTION ';'
+//		;		
+//idArray : 'new' ('Actor' | 'Date' | 'Event') '[]' NAME '=' DESCRIPTION ';'
+// 1 2 9 11
+//idArray	:	'new' ('Actor' | 'Date' | 'Event')    (  '['  ( 11 | NONZERO? | NONZERO DIGIT*)  ']')?    NAME '=' DESCRIPTION ';'
+//			;
+idArray	:	'new' ('Actor' | 'Date' | 'Event')    (  '['  (  NONZERO? | NONZERO DIGIT*)  ']')?    NAME '=' DESCRIPTION ';'
+			;
 
 
 
@@ -73,8 +82,12 @@ DD		:	[0-2] [0-9]
 		|	[3] [0-1]
 		;
 
+NONZERO : [1-9]
+		;
+		
 DIGIT	:	[0-9] //('0'..'9')	//0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 		;
+
 
 actors	:	actor 
 		|	actor actor*
@@ -88,3 +101,5 @@ NAME	:	'(' [a-zA-Z_]+ ([a-zA-Z] | [0-9] | ' ' )* ')'	// NAME is NOT in quotes, i
 		;
 		
 WS 		: [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines		
+
+
