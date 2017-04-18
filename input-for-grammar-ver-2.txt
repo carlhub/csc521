@@ -1,14 +1,16 @@
 history (The Carson Times)
 {
-	new Event (e1) = "This is the graduation ceremony";
+
+	new Event []   (arrayevent) = "carlos james csudh";	
+	new Event   (e1) = "This is the graduation ceremony";		
+	new Event []   (arrayevent2) = "carlos james csudh";		
+	event "e1" 2017 (carson);    
+
+	print();
+	report();	
+	report((thisisAName));
+	print ((Printing1)+(printName2)) ; 
+	report("Description One 2"+(variableTwo));
+	report("Description One 2"+(variableTwo)+"describe 3"+(variable4));
 	
-	new Actor (a1) = "The actors names are Carlos James Taylor";
-	
-	new Date (d1) = "The Date is March 2017";	
-	
-	event "e1" 2017 (carson);
-    
-	event "Earthquake" 2017-03-14 (Carson CA);
-	
-	event "Graduation 2017" 2018-05-01 (CSUDH)(CSU);
 }

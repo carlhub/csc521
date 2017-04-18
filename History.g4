@@ -36,32 +36,44 @@ history	:	event+ ;
 					
 prog	:	'history' NAME 
 		'{'
-		//idb*
 		(id | idArray)*
 		event+
+		print*
 		'}'
 		;
 		
-id		: 'new' ('Actor' | 'Date' | 'Event') NAME '=' DESCRIPTION ';'
-		;
-//idb 	:  ('Array') ('['  NONZERO DIGIT* ']')* NAME '=' DESCRIPTION ';'
-//		;
-//idArray	:	'new' ('Actor' | 'Date' | 'Event')    (  '['  ('11' | '2' | '9' | '1' | DIGIT?)  ']')?    NAME '=' DESCRIPTION ';'
-//		;		
-//idArray : 'new' ('Actor' | 'Date' | 'Event') '[]' NAME '=' DESCRIPTION ';'
-// 1 2 9 11
-//idArray	:	'new' ('Actor' | 'Date' | 'Event')    (  '['  ( 11 | NONZERO? | NONZERO DIGIT*)  ']')?    NAME '=' DESCRIPTION ';'
-//			;
-idArray	:	'new' ('Actor' | 'Date' | 'Event')    (  '['  (  NONZERO? | NONZERO DIGIT*)  ']')?    NAME '=' DESCRIPTION ';'
+print : ('print' | 'report') 
+			'('
+			//(NAME | DESCRIPTION)? (CONCAT (NAME | DESCRIPTION))*
+			(NAME | DESCRIPTION)? CONCAT*
+			//NAME? (',' NAME)*
+			//| DESCRIPTION?
+			')' ';'
+			;
+CONCAT: //'+'
+			 '+' (NAME | DESCRIPTION)
+			;
+			
+id			: 'new' ('Actor' | 'Date' | 'Event') NAME '=' DESCRIPTION ';'
+			;
+//idArray	:	'new' ('Actor' | 'Date' | 'Event')      ('[' (DIGIT? | DIGIT DIGIT*) ']')     NAME '=' DESCRIPTION ';'
+idArray	:	'new' ('Actor' | 'Date' | 'Event')      ARRAYBRACKET?    NAME '=' DESCRIPTION ';'
 			;
 
+			
+//PRINT : 'Print' '"'
+//(event | DESCRIPTION | actors)*
+//'"'
+//':'
+//;
+			
+			
 
-
-//event	:	'event' "describe the event"	date	(actor1) (actor2) ...
 event	:	'event'	DESCRIPTION 			date 	actors	';'
 		;
 		
 
+			
 DESCRIPTION	: '"'  [a-zA-Z_]+ ( [0-9] | [a-zA-Z] | ' ')* 			//+ one or more; DESCRIPTION must be in quotes
 			 '"'
 			;
@@ -71,6 +83,10 @@ date	:	YEAR
 		|	YEAR  MM  DD				
 		;
 
+ARRAYBRACKET : '[' [1-9]? ']'
+						| '[' [1-9] [0-9]* ']'
+						;
+						
 YEAR	:	[1-2] ([0] | [8-9]) DIGIT DIGIT	//1 ('8'..'9') digit digit
 		;
 		
@@ -82,11 +98,10 @@ DD		:	[0-2] [0-9]
 		|	[3] [0-1]
 		;
 
-NONZERO : [1-9]
-		;
 		
-DIGIT	:	[0-9] //('0'..'9')	//0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-		;
+DIGIT	:	[0-9] 
+			;
+			
 
 
 actors	:	actor 
