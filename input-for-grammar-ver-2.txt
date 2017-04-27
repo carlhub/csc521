@@ -1,10 +1,22 @@
 history (The Carson Times)
 {
 
-	new Event []   (arrayevent) = "carlos james csudh";	
-	new Event   (e1) = "This is the graduation ceremony";		
+	new Event [] (arrayevent) = "carlos james csudh";	
+	new Event (e1) = "Clone of e1";		
+	new Event (e2) = "Clone of e1 new";
+	new Event (e3) = "Clone of e1 new";
+	
+	
+	new Actor (a1) = "James";
+	new Actor (a2)="Carlos";
+	new Actor (e3) ="John";
+	new Actor (Pence)="NewYorK";
+	new Actor (a1) ="Pence";
+
 	new Event []   (arrayevent2) = "carlos james csudh";		
-	event "e1" 2017 (carson);    
+	event "Middle Ages Times" 1017 (carson);    
+	event "birth" 2007 (Colonies);
+	
 
 	print();
 	report();	

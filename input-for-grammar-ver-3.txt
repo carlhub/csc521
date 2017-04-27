@@ -1,6 +1,5 @@
-history (The Carson Times)
+history (TheCarsonTimes)
 {
-
 	
 	new Event []   (arrayevent) = "carlos james csudh";	
 	new Event [1] (Arrayeventsize1) ="event array of size 1";
@@ -10,6 +9,7 @@ history (The Carson Times)
 	
 	
 	new Event   (e1) = "This is the graduation ceremony";		
+		
 	new Actor    (a1) = "The actors names are Carlos James Taylor";	
 	new Date     (d1) = "The Date is March 2017";	
 	
