@@ -4,10 +4,20 @@ import java.util.Map;
 public class EvalVisitor extends HistoryBaseVisitor<Integer> {
 	Map<String,Integer> symTable=new HashMap<String, Integer>();	
 	
+	public String stripID(String id)
+	{
+		String id2;
+		id2=id.substring(1, id.indexOf( ')' )) ;
+		
+		System.out.println("STRIPPED_STRING_ID=================="+id2);
+		
+		return id2;
+	}
 	public boolean checkTable(String id)
 	{
 		/*code inject*/		
 		//String id = ctx.NAME().getText();
+		IR.addCode("//visit-checkTable");/*sanity test*/
 		int count=0;
 		System.out.println("TABLE_VISIT. ID_NAME="+id);		
 		for(String key: symTable.keySet() )/*check*/
@@ -17,6 +27,10 @@ public class EvalVisitor extends HistoryBaseVisitor<Integer> {
 				System.out.println("count="+( count )+" key="+key+", id="+id);
 				System.out.println("ERROR. Duplicate_ID_IN_TABLE.");
 				//System.exit(0);
+			}
+			else /*no error Key is NOT duplicate*/
+			{
+				
 			}
 			count++;
 		}	
@@ -75,9 +89,14 @@ public class EvalVisitor extends HistoryBaseVisitor<Integer> {
 	{ 
 		/*code inject*/
 		String id=ctx.NAME().getText();
+		//String id2=ctx.NAME().`
 		System.out.println("ID_ARRAY_VISIT. ID_ARRY_NAME="+id);
 		if(checkTable(id))/*check*/
+		{
 			symTable.put(id, null);
+			id=stripID(id);
+			IR.addCode("String "+id+ ";/*variable --generic*/");			
+		}
 		
 		return visitChildren(ctx); 
 	}
